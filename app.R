@@ -1366,7 +1366,7 @@ server <- function(input, output, session) {
   },
   digits = -2)
   })
-  dfmprint<-isolate({df1()}) #to check if it is working
+  dfmprint<-isolate({df2()}) #to check if it is working
   print(head(dfmprint))
   
 }
