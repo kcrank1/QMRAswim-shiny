@@ -1,6 +1,6 @@
 
 # Define server logic
-server <- function(input, output, session) {
+shinyServer(function(input, output, session) {
   output$appinfo<-renderText(print("QMRAswim is a web tool that models the range of probability of illnesses from swimming in a sewage impacted water body. The user inputs the measured concentration of the indicator organism and inputs desired reference values, and the output is a histogram of probability of illness from pathogens the user inputs data for. Downloads will be available for every computational step in the form of an Excel document.
 
                                    The intended audience for this tool are scientists or public health professionals who have access to the wide variety of reference information that is required to run the tool.
@@ -459,7 +459,7 @@ server <- function(input, output, session) {
     },
     digits = -2)
   })
-  dfmprint<-isolate({df2()}) #to check if it is working
+  dfmprint<-isolate({df1()}) #to check if it is working
   print(head(dfmprint))
 
-}
+})
