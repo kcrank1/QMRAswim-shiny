@@ -3,15 +3,34 @@ rm(list = ls())
 
 # Handle packages
 lapply(
-  X = c('shiny', 'CharFun', 'reshape2', 'ggplot2', 'scales', 'shinydashboard'),
+  X = c("shiny", "CharFun", "tidyverse", "scales", "shinydashboard", "shinyjs"),
   FUN = function(p) {
-    if(p %in% installed.packages()[,'Package'] == FALSE) {
+    if(p %in% installed.packages()[,"Package"] == FALSE) {
       install.packages(p, dependencies = TRUE)
     }
     library(p, character.only = TRUE)
   }
 )
 
+# Load modules
+lapply(
+  X = list.files(path = "modules", full.names = TRUE, recursive = TRUE),
+  FUN = source
+)
+
+# Functions for probability illness code
+# Single parameter exponential
+f1 <- function(x, n) {
+  1 - (exp(-x * n))
+}
+# Two parameter beta-poisson
+f2 <- function(a, b, n) {
+  1 - (1 + n / a) ^ -b
+}
+# Hypergeometric
+f3 <- function(a, b, n){
+  1 - hypergeom1F1(-n, a, b)
+}
 
 text_blocks <- list(
   appinfo = paste(
@@ -26,6 +45,8 @@ text_blocks <- list(
     "Below is the default values for water consumed by a swimmer in mL.",
     "Water dose is from 'Water ingestion during swimming activities in a pool: a pilot study', lognormal distribution with a mean of 2.92 and a standard deviation of 1.43 (Dufor et al. 2006).",
     "The parameters can be changed but using any distribution besides log normal is not currently supported."
-  )
+  ),
+  plot1 = "The dashed line represents the EPA recreational water standard of 30 illnesses per 1000 bathers",
+  download_info = "File preview only shows first six values. Actual table will as long as the number of samplings. The export will be a .csv."
 )
 
