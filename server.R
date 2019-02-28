@@ -390,9 +390,10 @@ shinyServer(function(input, output, session) {
   df_final <- reactive({
     melt(
       data          = df(),
-      variable.name = "path_id",
+      variable.name = "path id",
       value.name    = "p_ill"
-    )
+    ) %>%
+      set_names(c("path_id", "p_ill"))
   })
 
 })
