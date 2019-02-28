@@ -3,7 +3,7 @@ rm(list = ls())
 
 # Handle packages
 lapply(
-  X = c("shiny", "CharFun", "tidyverse", "scales", "shinydashboard", "shinyjs"),
+  X = c("reshape", "shiny", "CharFun", "tidyverse", "scales", "shinydashboard", "shinyjs"),
   FUN = function(p) {
     if(p %in% installed.packages()[,"Package"] == FALSE) {
       install.packages(p, dependencies = TRUE)
