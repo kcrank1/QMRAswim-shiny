@@ -1,5 +1,5 @@
 
-fluidPage(
+fluidPage(theme=shinytheme("spacelab"),
   tags$head(
     # tags$meta(tags$title('')),
     tags$link(rel = 'stylesheet', type = 'text/css', href = 'styles.css'),
