@@ -1,0 +1,640 @@
+{
+  "input": {
+    "dl_data_name": "wastewater dose",
+    "dl_data_name-selectized": "",
+    "dl_data_preview": 0,
+    "dose_mean": 2.92,
+    "dose_sd": 1.42,
+    "indic": 1,
+    "indic_sewage_dist": "log uniform",
+    "indic_sewage_dist_par_max": 9.5,
+    "indic_sewage_dist_par_min": 7,
+    "indic_sewage_dist-selectized": "",
+    "path_num": 4,
+    "path1-dist": "single value",
+    "path1-dist_par_single": 0.5,
+    "path1-dist-selectized": "",
+    "path1-name": "Adenovirus",
+    "path1-resp_mod": "single-parameter exponential",
+    "path1-resp_mod_par_lambda": 0.4172,
+    "path1-resp_mod-selectized": "",
+    "path1-sewage_dist": "log uniform",
+    "path1-sewage_dist_par_max": 8,
+    "path1-sewage_dist_par_min": 5.5,
+    "path1-sewage_dist-selectized": "",
+    "path2-dist": "single value",
+    "path2-dist_par_single": 0.6,
+    "path2-dist-selectized": "",
+    "path2-name": "Norovirus",
+    "path2-resp_mod": "two-parameter hypergeometric1f1",
+    "path2-resp_mod_par_alpha": 0.04,
+    "path2-resp_mod_par_beta": 0.095,
+    "path2-resp_mod_par_lambda": 0.4172,
+    "path2-resp_mod-selectized": "",
+    "path2-sewage_dist": "log uniform",
+    "path2-sewage_dist_par_max": 6,
+    "path2-sewage_dist_par_min": 3,
+    "path2-sewage_dist-selectized": "",
+    "path3-dist": "single value",
+    "path3-dist_par_single": 0.5,
+    "path3-dist-selectized": "",
+    "path3-name": "Enterovirus",
+    "path3-resp_mod": "single-parameter exponential",
+    "path3-resp_mod_par_lambda": 0.0253,
+    "path3-resp_mod-selectized": "",
+    "path3-sewage_dist": "log uniform",
+    "path3-sewage_dist_par_max": 6,
+    "path3-sewage_dist_par_min": 4,
+    "path3-sewage_dist-selectized": "",
+    "path4-dist": "single value",
+    "path4-dist_par_single": 0.35,
+    "path4-dist-selectized": "",
+    "path4-name": "Rotavirus",
+    "path4-resp_mod": "two-parameter beta-poisson",
+    "path4-resp_mod_par_alpha": 0.42,
+    "path4-resp_mod_par_beta": 0.26,
+    "path4-resp_mod_par_lambda": 0.4172,
+    "path4-resp_mod-selectized": "",
+    "path4-sewage_dist": "log uniform",
+    "path4-sewage_dist_par_max": 2.5,
+    "path4-sewage_dist_par_min": 1,
+    "path4-sewage_dist-selectized": "",
+    "sample_n": 10000,
+    "sample_seed": 1
+  },
+  "output": {
+    "path1-ui": {
+      "html": "<div id=\"path1-ui_name\" class=\"shiny-html-output\"><\/div>\n<div id=\"path1-ui_resp_mod\" class=\"shiny-html-output\"><\/div>\n<div id=\"path1-ui_resp_mod_pars\" class=\"shiny-html-output\"><\/div>\n<div id=\"path1-ui_dist\" class=\"shiny-html-output\"><\/div>\n<div id=\"path1-ui_dist_pars\" class=\"shiny-html-output\"><\/div>\n<div id=\"path1-ui_sewage_dist\" class=\"shiny-html-output\"><\/div>\n<div id=\"path1-ui_sewage_dist_pars\" class=\"shiny-html-output\"><\/div>",
+      "deps": [
+
+      ]
+    },
+    "path1-ui_dist": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path1-dist\">Pill/inf for pathogen 1<\/label>\n  <div>\n    <select id=\"path1-dist\"><option value=\"single value\" selected>single value<\/option>\n<option value=\"uniform\">uniform<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path1-dist\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path1-ui_dist_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path1-dist_par_single\">Probability of illness if infected in decimal form<\/label>\n  <input id=\"path1-dist_par_single\" type=\"number\" class=\"form-control\" value=\"0.5\" min=\"0\" max=\"1\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path1-ui_name": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path1-name\">Name of pathogen 1<\/label>\n  <input id=\"path1-name\" type=\"text\" class=\"form-control\" value=\"Pathogen 1\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path1-ui_resp_mod": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path1-resp_mod\">Dose response model for pathogen 1<\/label>\n  <div>\n    <select id=\"path1-resp_mod\"><option value=\"single-parameter exponential\" selected>single-parameter exponential<\/option>\n<option value=\"two-parameter beta-poisson\">two-parameter beta-poisson<\/option>\n<option value=\"two-parameter hypergeometric1f1\">two-parameter hypergeometric1f1<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path1-resp_mod\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path1-ui_resp_mod_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path1-resp_mod_par_lambda\">Exponential parameter, lambda<\/label>\n  <input id=\"path1-resp_mod_par_lambda\" type=\"number\" class=\"form-control\" value=\"0.4172\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path1-ui_sewage_dist": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path1-sewage_dist\">Distribution of pathogen 1 in sewage<\/label>\n  <div>\n    <select id=\"path1-sewage_dist\"><option value=\"log uniform\" selected>log uniform<\/option>\n<option value=\"log normal\">log normal<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path1-sewage_dist\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path1-ui_sewage_dist_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path1-sewage_dist_par_min\">Min concentration 1 in sewage (log10 copies/L)<\/label>\n  <input id=\"path1-sewage_dist_par_min\" type=\"number\" class=\"form-control\" value=\"5.5\" min=\"0\" max=\"100\"/>\n<\/div>\n<div class=\"form-group shiny-input-container\">\n  <label for=\"path1-sewage_dist_par_max\">Max concentration 1 in sewage (log10 copies/L)<\/label>\n  <input id=\"path1-sewage_dist_par_max\" type=\"number\" class=\"form-control\" value=\"8\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path2-ui": {
+      "html": "<div id=\"path2-ui_name\" class=\"shiny-html-output\"><\/div>\n<div id=\"path2-ui_resp_mod\" class=\"shiny-html-output\"><\/div>\n<div id=\"path2-ui_resp_mod_pars\" class=\"shiny-html-output\"><\/div>\n<div id=\"path2-ui_dist\" class=\"shiny-html-output\"><\/div>\n<div id=\"path2-ui_dist_pars\" class=\"shiny-html-output\"><\/div>\n<div id=\"path2-ui_sewage_dist\" class=\"shiny-html-output\"><\/div>\n<div id=\"path2-ui_sewage_dist_pars\" class=\"shiny-html-output\"><\/div>",
+      "deps": [
+
+      ]
+    },
+    "path2-ui_dist": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path2-dist\">Pill/inf for pathogen 2<\/label>\n  <div>\n    <select id=\"path2-dist\"><option value=\"single value\" selected>single value<\/option>\n<option value=\"uniform\">uniform<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path2-dist\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path2-ui_dist_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path2-dist_par_single\">Probability of illness if infected in decimal form<\/label>\n  <input id=\"path2-dist_par_single\" type=\"number\" class=\"form-control\" value=\"0.5\" min=\"0\" max=\"1\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path2-ui_name": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path2-name\">Name of pathogen 2<\/label>\n  <input id=\"path2-name\" type=\"text\" class=\"form-control\" value=\"Pathogen 2\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path2-ui_resp_mod": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path2-resp_mod\">Dose response model for pathogen 2<\/label>\n  <div>\n    <select id=\"path2-resp_mod\"><option value=\"single-parameter exponential\" selected>single-parameter exponential<\/option>\n<option value=\"two-parameter beta-poisson\">two-parameter beta-poisson<\/option>\n<option value=\"two-parameter hypergeometric1f1\">two-parameter hypergeometric1f1<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path2-resp_mod\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path2-ui_resp_mod_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path2-resp_mod_par_alpha\">Alpha<\/label>\n  <input id=\"path2-resp_mod_par_alpha\" type=\"number\" class=\"form-control\" value=\"1\" min=\"0\" max=\"100\"/>\n<\/div>\n<div class=\"form-group shiny-input-container\">\n  <label for=\"path2-resp_mod_par_beta\">Beta<\/label>\n  <input id=\"path2-resp_mod_par_beta\" type=\"number\" class=\"form-control\" value=\"1\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path2-ui_sewage_dist": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path2-sewage_dist\">Distribution of pathogen 2 in sewage<\/label>\n  <div>\n    <select id=\"path2-sewage_dist\"><option value=\"log uniform\" selected>log uniform<\/option>\n<option value=\"log normal\">log normal<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path2-sewage_dist\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path2-ui_sewage_dist_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path2-sewage_dist_par_min\">Min concentration 2 in sewage (log10 copies/L)<\/label>\n  <input id=\"path2-sewage_dist_par_min\" type=\"number\" class=\"form-control\" value=\"5.5\" min=\"0\" max=\"100\"/>\n<\/div>\n<div class=\"form-group shiny-input-container\">\n  <label for=\"path2-sewage_dist_par_max\">Max concentration 2 in sewage (log10 copies/L)<\/label>\n  <input id=\"path2-sewage_dist_par_max\" type=\"number\" class=\"form-control\" value=\"8\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path3-ui": {
+      "html": "<div id=\"path3-ui_name\" class=\"shiny-html-output\"><\/div>\n<div id=\"path3-ui_resp_mod\" class=\"shiny-html-output\"><\/div>\n<div id=\"path3-ui_resp_mod_pars\" class=\"shiny-html-output\"><\/div>\n<div id=\"path3-ui_dist\" class=\"shiny-html-output\"><\/div>\n<div id=\"path3-ui_dist_pars\" class=\"shiny-html-output\"><\/div>\n<div id=\"path3-ui_sewage_dist\" class=\"shiny-html-output\"><\/div>\n<div id=\"path3-ui_sewage_dist_pars\" class=\"shiny-html-output\"><\/div>",
+      "deps": [
+
+      ]
+    },
+    "path3-ui_dist": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path3-dist\">Pill/inf for pathogen 3<\/label>\n  <div>\n    <select id=\"path3-dist\"><option value=\"single value\" selected>single value<\/option>\n<option value=\"uniform\">uniform<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path3-dist\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path3-ui_dist_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path3-dist_par_single\">Probability of illness if infected in decimal form<\/label>\n  <input id=\"path3-dist_par_single\" type=\"number\" class=\"form-control\" value=\"0.5\" min=\"0\" max=\"1\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path3-ui_name": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path3-name\">Name of pathogen 3<\/label>\n  <input id=\"path3-name\" type=\"text\" class=\"form-control\" value=\"Pathogen 3\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path3-ui_resp_mod": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path3-resp_mod\">Dose response model for pathogen 3<\/label>\n  <div>\n    <select id=\"path3-resp_mod\"><option value=\"single-parameter exponential\" selected>single-parameter exponential<\/option>\n<option value=\"two-parameter beta-poisson\">two-parameter beta-poisson<\/option>\n<option value=\"two-parameter hypergeometric1f1\">two-parameter hypergeometric1f1<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path3-resp_mod\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path3-ui_resp_mod_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path3-resp_mod_par_lambda\">Exponential parameter, lambda<\/label>\n  <input id=\"path3-resp_mod_par_lambda\" type=\"number\" class=\"form-control\" value=\"0.4172\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path3-ui_sewage_dist": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path3-sewage_dist\">Distribution of pathogen 3 in sewage<\/label>\n  <div>\n    <select id=\"path3-sewage_dist\"><option value=\"log uniform\" selected>log uniform<\/option>\n<option value=\"log normal\">log normal<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path3-sewage_dist\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path3-ui_sewage_dist_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path3-sewage_dist_par_min\">Min concentration 3 in sewage (log10 copies/L)<\/label>\n  <input id=\"path3-sewage_dist_par_min\" type=\"number\" class=\"form-control\" value=\"5.5\" min=\"0\" max=\"100\"/>\n<\/div>\n<div class=\"form-group shiny-input-container\">\n  <label for=\"path3-sewage_dist_par_max\">Max concentration 3 in sewage (log10 copies/L)<\/label>\n  <input id=\"path3-sewage_dist_par_max\" type=\"number\" class=\"form-control\" value=\"8\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path4-ui": {
+      "html": "<div id=\"path4-ui_name\" class=\"shiny-html-output\"><\/div>\n<div id=\"path4-ui_resp_mod\" class=\"shiny-html-output\"><\/div>\n<div id=\"path4-ui_resp_mod_pars\" class=\"shiny-html-output\"><\/div>\n<div id=\"path4-ui_dist\" class=\"shiny-html-output\"><\/div>\n<div id=\"path4-ui_dist_pars\" class=\"shiny-html-output\"><\/div>\n<div id=\"path4-ui_sewage_dist\" class=\"shiny-html-output\"><\/div>\n<div id=\"path4-ui_sewage_dist_pars\" class=\"shiny-html-output\"><\/div>",
+      "deps": [
+
+      ]
+    },
+    "path4-ui_dist": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path4-dist\">Pill/inf for pathogen 4<\/label>\n  <div>\n    <select id=\"path4-dist\"><option value=\"single value\" selected>single value<\/option>\n<option value=\"uniform\">uniform<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path4-dist\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path4-ui_dist_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path4-dist_par_single\">Probability of illness if infected in decimal form<\/label>\n  <input id=\"path4-dist_par_single\" type=\"number\" class=\"form-control\" value=\"0.5\" min=\"0\" max=\"1\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path4-ui_name": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path4-name\">Name of pathogen 4<\/label>\n  <input id=\"path4-name\" type=\"text\" class=\"form-control\" value=\"Pathogen 4\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path4-ui_resp_mod": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path4-resp_mod\">Dose response model for pathogen 4<\/label>\n  <div>\n    <select id=\"path4-resp_mod\"><option value=\"single-parameter exponential\" selected>single-parameter exponential<\/option>\n<option value=\"two-parameter beta-poisson\">two-parameter beta-poisson<\/option>\n<option value=\"two-parameter hypergeometric1f1\">two-parameter hypergeometric1f1<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path4-resp_mod\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path4-ui_resp_mod_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path4-resp_mod_par_alpha\">Alpha<\/label>\n  <input id=\"path4-resp_mod_par_alpha\" type=\"number\" class=\"form-control\" value=\"1\" min=\"0\" max=\"100\"/>\n<\/div>\n<div class=\"form-group shiny-input-container\">\n  <label for=\"path4-resp_mod_par_beta\">Beta<\/label>\n  <input id=\"path4-resp_mod_par_beta\" type=\"number\" class=\"form-control\" value=\"1\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "path4-ui_sewage_dist": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"path4-sewage_dist\">Distribution of pathogen 4 in sewage<\/label>\n  <div>\n    <select id=\"path4-sewage_dist\"><option value=\"log uniform\" selected>log uniform<\/option>\n<option value=\"log normal\">log normal<\/option><\/select>\n    <script type=\"application/json\" data-for=\"path4-sewage_dist\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "path4-ui_sewage_dist_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path4-sewage_dist_par_min\">Min concentration 4 in sewage (log10 copies/L)<\/label>\n  <input id=\"path4-sewage_dist_par_min\" type=\"number\" class=\"form-control\" value=\"5.5\" min=\"0\" max=\"100\"/>\n<\/div>\n<div class=\"form-group shiny-input-container\">\n  <label for=\"path4-sewage_dist_par_max\">Max concentration 4 in sewage (log10 copies/L)<\/label>\n  <input id=\"path4-sewage_dist_par_max\" type=\"number\" class=\"form-control\" value=\"8\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "plot_box1": {
+      "message": "object 'p_inf' not found",
+      "call": "`<reactive>`(...)",
+      "type": null
+    },
+    "plot_hist1": {
+      "src": "[image data sha1: e08efb8a5090ed7e231d1c09ce0b3d201c249ab7]",
+      "width": 466,
+      "height": 400,
+      "coordmap": {
+        "panels": [
+          {
+            "panel": 1,
+            "row": 1,
+            "col": 1,
+            "panel_vars": {
+
+            },
+            "log": {
+              "x": 10,
+              "y": null
+            },
+            "domain": {
+              "left": -13.3868651244947,
+              "right": -6.69343256224736,
+              "bottom": -24.55,
+              "top": 515.55
+            },
+            "mapping": {
+              "y": null,
+              "x": "dose"
+            },
+            "range": {
+              "left": 51.2169318668275,
+              "right": 458.52801992528,
+              "bottom": 354.183654344854,
+              "top": 7.4719800747198
+            }
+          }
+        ],
+        "dims": {
+          "width": 466,
+          "height": 400
+        }
+      }
+    },
+    "ui": {
+      "html": "<head>\n  <title>QMRA of swimming in sewage impacted environmental waters<\/title>\n<\/head>\n<h2>QMRA of swimming in sewage impacted environmental waters<\/h2>\n<p>QMRAswim is a web tool that models the range of probability of illnesses from swimming in a sewage impacted water body. The user inputs the measured concentration of the indicator organism and inputs desired reference values, and the output is a boxplot of probability of illnesses from any pathogens the user inputs reference values for. The intended audience for this tool are scientists or public health professionals who have access to the wide variety of reference information that is required to run the tool. This tool is useful and unique because it can take one measurement from an impacted water body and tell the user ranges of probabilities of illness for any number or type of pathogen.<\/p>\n<div class=\"row\">\n  <div class=\"col-sm-3\">\n    <div id=\"ui_indic\" class=\"shiny-html-output\"><\/div>\n  <\/div>\n  <div class=\"col-sm-3\">\n    <div id=\"ui_indic_sewage\" class=\"shiny-html-output\"><\/div>\n  <\/div>\n  <div class=\"col-sm-3\">\n    <div id=\"ui_sample\" class=\"shiny-html-output\"><\/div>\n  <\/div>\n  <div class=\"col-sm-3\">\n    <div id=\"ui_dose_pars\" class=\"shiny-html-output\"><\/div>\n  <\/div>\n<\/div>\n<div class=\"row\">\n  <div class=\"col-sm-6\">\n    <div id=\"plot_box1\" class=\"shiny-plot-output\" style=\"width: 100% ; height: 400px\"><\/div>\n    <p>The dashed line represents the EPA recreational water standard of 30 illnesses per 1000 bathers<\/p>\n  <\/div>\n  <div class=\"col-sm-6\">\n    <div id=\"plot_hist1\" class=\"shiny-plot-output\" style=\"width: 100% ; height: 400px\"><\/div>\n  <\/div>\n<\/div>\n<div class=\"row\">\n  <div id=\"ui_pathogens\" class=\"shiny-html-output\"><\/div>\n<\/div>\n<div class=\"row\">\n  <div id=\"ui_download\" class=\"shiny-html-output\"><\/div>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "ui_dose_mean": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"dose_mean\">Dose mean<\/label>\n  <input id=\"dose_mean\" type=\"number\" class=\"form-control\" value=\"2.92\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "ui_dose_pars": {
+      "html": "<p>Default water dose is from 'Water ingestion during swimming activities in a pool: a pilot study', (Dufor et al. 2006). Log normal is only distribution currently supported.<\/p>\n<div id=\"ui_dose_mean\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_dose_sd\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_path_num\" class=\"shiny-html-output\"><\/div>",
+      "deps": [
+
+      ]
+    },
+    "ui_dose_sd": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"dose_sd\">Dose standard deviation<\/label>\n  <input id=\"dose_sd\" type=\"number\" class=\"form-control\" value=\"1.42\" min=\"0\" max=\"10\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "ui_download": {
+      "html": "<div id=\"ui_download_data\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_download_preview\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_meanwwdose\" class=\"shiny-text-output\"><\/div>\n<div id=\"ui_meandffinal\" class=\"shiny-text-output\"><\/div>\n<p>File preview only shows first six values. Actual table will as long as the number of samplings. The export will be a .csv.<\/p>",
+      "deps": [
+
+      ]
+    },
+    "ui_download_data": {
+      "html": "<p>Download a dataset generated by this app<\/p>\n<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"dl_data_name\">Choose a dataset:<\/label>\n  <div>\n    <select id=\"dl_data_name\"><option value=\"wastewater dose\" selected>wastewater dose<\/option>\n<option value=\"probability of illness\">probability of illness<\/option><\/select>\n    <script type=\"application/json\" data-for=\"dl_data_name\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>\n<a id=\"dl_data\" class=\"btn btn-default shiny-download-link \" href=\"\" target=\"_blank\" download>\n  <i class=\"fa fa-download\"><\/i>\n  Download\n<\/a>\n<button id=\"dl_data_preview\" type=\"button\" class=\"btn btn-default action-button\">Preview Data<\/button>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "font-awesome",
+          "version": "5.3.1",
+          "src": {
+            "href": "font-awesome-5.3.1"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "css/all.min.css",
+            "css/v4-shims.min.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
+      ]
+    },
+    "ui_download_preview": {
+      "message": "",
+      "call": "NULL",
+      "type": [
+        "shiny.silent.error",
+        "validation"
+      ]
+    },
+    "ui_indic": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"indic\">Concentration of indicator in impacted water (log 10 copies/100mL)<\/label>\n  <input id=\"indic\" type=\"number\" class=\"form-control\" value=\"1\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "ui_indic_sewage": {
+      "html": "<div id=\"ui_indic_sewage_dist\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_indic_sewage_dist_pars\" class=\"shiny-html-output\"><\/div>",
+      "deps": [
+
+      ]
+    },
+    "ui_indic_sewage_dist": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"indic_sewage_dist\">Indicator distribution in sewage<\/label>\n  <div>\n    <select id=\"indic_sewage_dist\"><option value=\"log uniform\">log uniform<\/option>\n<option value=\"log normal\">log normal<\/option><\/select>\n    <script type=\"application/json\" data-for=\"indic_sewage_dist\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "ui_indic_sewage_dist_pars": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"indic_sewage_dist_par_max\">Max concentration (log10 copies/L) <\/label>\n  <input id=\"indic_sewage_dist_par_max\" type=\"number\" class=\"form-control\" value=\"9.5\" min=\"0\" max=\"100\"/>\n<\/div>\n<div class=\"form-group shiny-input-container\">\n  <label for=\"indic_sewage_dist_par_min\">Min concentration (log10 copies/L)<\/label>\n  <input id=\"indic_sewage_dist_par_min\" type=\"number\" class=\"form-control\" value=\"7\" min=\"0\" max=\"100\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "ui_meandffinal": {
+      "message": "object 'p_inf' not found",
+      "call": "`<reactive>`(...)",
+      "type": null
+    },
+    "ui_meanwwdose": "8.262293e-10",
+    "ui_path_num": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path_num\">Number of pathogens, up to 7 currently supported.<\/label>\n  <input id=\"path_num\" type=\"number\" class=\"form-control\" value=\"1\" min=\"1\" max=\"7\" step=\"1\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "ui_pathogens": {
+      "html": "<div class=\"col-sm-4\">\n  <div id=\"path1-ui\" class=\"shiny-html-output\"><\/div>\n<\/div>\n<div class=\"col-sm-4\">\n  <div id=\"path2-ui\" class=\"shiny-html-output\"><\/div>\n<\/div>\n<div class=\"col-sm-4\">\n  <div id=\"path3-ui\" class=\"shiny-html-output\"><\/div>\n<\/div>\n<div class=\"col-sm-4\">\n  <div id=\"path4-ui\" class=\"shiny-html-output\"><\/div>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "ui_sample": {
+      "html": "<div id=\"ui_sample_seed\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_sample_n\" class=\"shiny-html-output\"><\/div>",
+      "deps": [
+
+      ]
+    },
+    "ui_sample_n": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"sample_n\">Number of samplings<\/label>\n  <input class=\"js-range-slider\" id=\"sample_n\" data-min=\"0\" data-max=\"100000\" data-from=\"10000\" data-step=\"5000\" data-grid=\"true\" data-grid-num=\"10\" data-grid-snap=\"false\" data-prettify-separator=\",\" data-prettify-enabled=\"true\" data-keyboard=\"true\" data-data-type=\"number\"/>\n<\/div>",
+      "deps": [
+        {
+          "name": "ionrangeslider",
+          "version": "2.1.6",
+          "src": {
+            "href": "shared/ionrangeslider"
+          },
+          "meta": null,
+          "script": "js/ion.rangeSlider.min.js",
+          "stylesheet": [
+            "css/ion.rangeSlider.css",
+            "css/ion.rangeSlider.skinShiny.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "strftime",
+          "version": "0.9.2",
+          "src": {
+            "href": "shared/strftime"
+          },
+          "meta": null,
+          "script": "strftime-min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "ui_sample_seed": {
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"sample_seed\">Set seed of random number generator<\/label>\n  <input id=\"sample_seed\" type=\"number\" class=\"form-control\" value=\"1\" min=\"0\" max=\"1e+09\"/>\n<\/div>",
+      "deps": [
+
+      ]
+    }
+  },
+  "export": {
+
+  }
+}

@@ -32,7 +32,7 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
   output$ui_resp_mod <- renderUI({
     selectInput(
       inputId = ns("resp_mod"),
-      label   = paste("Choose which dose response model to use for pathogen", n()),
+      label   = paste("Dose response model for pathogen", n()),
       choices = c("single-parameter exponential", "two-parameter beta-poisson", "two-parameter hypergeometric1f1")
     )
   })
@@ -42,7 +42,7 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
     if(input$resp_mod == "single-parameter exponential") {
       numericInput(
         inputId = ns("resp_mod_par_lambda"),
-        label   = "Enter the exponential parameter, lambda",
+        label   = "Exponential parameter, lambda",
         value   = 0.4172,
         min     = 0,
         max     = 100
@@ -51,14 +51,14 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
       tagList(
         numericInput(
           inputId = ns("resp_mod_par_alpha"),
-          label   = "Enter the first parameter, alpha",
+          label   = "Alpha",
           value   = 1,
           min     = 0,
           max     = 100
         ),
         numericInput(
           inputId = ns("resp_mod_par_beta"),
-          label   = "Enter the second parameter, beta",
+          label   = "Beta",
           value   = 1,
           min     = 0,
           max     = 100
@@ -71,7 +71,7 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
   output$ui_dist <- renderUI({
     selectInput(
       inputId = ns("dist"),
-      label   = paste("Is Pill/inf for pathogen", n(), "a uniform distribution or a single decimal value?"),
+      label   = paste("Pill/inf for pathogen", n()),
       choices = c("single value", "uniform")
     )
   })
@@ -81,7 +81,7 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
     if(input$dist == "single value") {
       numericInput(
         inputId = ns("dist_par_single"),
-        label   = "Enter the probability of illness if infected in decimal form i.e.60% ->0.6",
+        label   = "Probability of illness if infected in decimal form",
         value   = 0.5,
         min     = 0,
         max     = 1
@@ -90,14 +90,14 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
       tagList(
         numericInput(
           inputId = ns("dist_par_min"),
-          label   = "Enter the min value of probability of illness if infected in decimal form i.e.60% ->0.6",
+          label   = "Min value in decimal form",
           value   = 0.5,
           min     = 0,
           max     = 1
         ),
         numericInput(
           inputId = ns("dist_par_max"),
-          label   =  "Enter the max value of probability of illness if infected in decimal form i.e.60% ->0.6",
+          label   =  "Max value in decimal form",
           value   = 0.5,
           min     = 0,
           max     = 1
@@ -109,7 +109,7 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
   output$ui_sewage_dist <- renderUI({
     selectInput(
       inputId = ns("sewage_dist"),
-      label   = paste("Choose the distribution that pathogen", n(), "follows in sewage"),
+      label   = paste("Distribution of pathogen", n(), "in sewage"),
       choices = c("log uniform", "log normal")
     )
   })
@@ -120,14 +120,14 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
       tagList(
         numericInput(
           inputId = ns("sewage_dist_par_min"),
-          label   = paste("Enter the min value of pathogen", n(), "in sewage in log10 copies/L"),
+          label   = paste("Min concentration", n(), "in sewage (log10 copies/L)"),
           value   = 5.5,
           min     = 0,
           max     = 100
         ),
         numericInput(
           inputId = ns("sewage_dist_par_max"),
-          label   = paste("Enter the max value of pathogen", n(), "in sewage in log10 copies/L"),
+          label   = paste("Max concentration", n(), "in sewage (log10 copies/L)"),
           value   = 8,
           min     = 0,
           max     = 100
@@ -137,14 +137,14 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
       tagList(
         numericInput(
           inputId = ns("sewage_dist_par_alpha"),
-          label   = "Enter the alpha value, or the mean in log10 copies/L",
+          label   = "Alpha (mean) in log10 copies/L",
           value   = 1,
           min     = 0,
           max     = 100
         ),
         numericInput(
           inputId = ns("sewage_dist_par_beta"),
-          label   = "Enter the beta value, or the standard deviation",
+          label   = "Beta value (standard deviation) in log10 copies/L",
           value   = 1,
           min     = 0,
           max     = 100

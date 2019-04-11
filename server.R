@@ -3,7 +3,7 @@ shinyServer(function(input, output, session) {
   
    # For loop for module assignment 
   #Load modules
-  path_num_vector<-reactive(1:input$path_num)
+  # path_num_vector<-reactive(1:input$path_num)
 
   # for (i in path_num_vector()) {
   #   assign(paste0("path",i),callModule(module= pathogens, id= paste0("path,i"),n=reactive(i),sample_n=sample_n, wwdose_wwdose))
@@ -84,7 +84,7 @@ shinyServer(function(input, output, session) {
   output$ui_indic <- renderUI({
     numericInput(
       inputId = "indic",
-      label   = "Concentration of indicator in environmental waters in log 10 copies/100mL",
+      label   = "Concentration of indicator in impacted water (log 10 copies/100mL)",
       value   = 1,
       min     = 0,
       max     = 100
@@ -101,7 +101,7 @@ shinyServer(function(input, output, session) {
   output$ui_indic_sewage_dist <- renderUI({
     selectInput(
       inputId  = "indic_sewage_dist",
-      label    = "Which distribution does the indicator concentration in sewage follow?",
+      label    = "Indicator distribution in sewage",
       choices  = c("log uniform", "log normal"),
       selected = "Log Uniform"
     )
@@ -113,14 +113,14 @@ shinyServer(function(input, output, session) {
       tagList(
         numericInput(
           inputId = "indic_sewage_dist_par_max",
-          label   = "Maximum concentration of indicator in sewage in log10 copies/L ",
+          label   = "Max concentration (log10 copies/L) ",
           value   = 9.5,
           min     = 0,
           max     = 100
         ),
         numericInput(
           inputId = "indic_sewage_dist_par_min",
-          label   = "Minimum concentration of indicator in sewage in log10 copies/L",
+          label   = "Min concentration (log10 copies/L)",
           value   = 7,
           min     = 0,
           max     = 100
@@ -130,14 +130,14 @@ shinyServer(function(input, output, session) {
       tagList(
         numericInput(
           inputId = "indic_sewage_dist_par_alpha",
-          label   = "Enter alpha for log normal distribution",
+          label   = "Alpha",
           value   = 1,
           min     = 0,
           max     = 100
         ),
         numericInput(
           inputId = "indic_sewage_dist_par_beta",
-          label   = "Enter beta for log normal distribution",
+          label   = "Beta",
           value   = 1,
           min     = 0,
           max     = 100
@@ -157,7 +157,7 @@ shinyServer(function(input, output, session) {
   output$ui_sample_seed <- renderUI({
     numericInput(
       inputId = "sample_seed",
-      label   = "Set seed of random number generator, default is 1.",
+      label   = "Set seed of random number generator",
       value   = 1,
       min     = 0,
       max     = 1000000000
@@ -167,7 +167,7 @@ shinyServer(function(input, output, session) {
   output$ui_sample_n <- renderUI({
     sliderInput(
       inputId = "sample_n",
-      label   = "How many samplings? Many Monte Carlo simulations use 10,000",
+      label   = "Number of samplings",
       min     = 0,
       max     = 100000,
       value   = 10000,
@@ -187,7 +187,7 @@ shinyServer(function(input, output, session) {
   output$ui_dose_mean <- renderUI({
     numericInput(
       inputId = "dose_mean",
-      label   = "Mean of dose",
+      label   = "Dose mean",
       min     = 0,
       max     = 100,
       value   = 2.92
@@ -197,7 +197,7 @@ shinyServer(function(input, output, session) {
   output$ui_dose_sd <- renderUI({
     numericInput(
       inputId = "dose_sd",
-      label   = "Standard deviation of dose ",
+      label   = "Dose standard deviation",
       min     = 0,
       max     = 10,
       value   = 1.42
@@ -207,7 +207,7 @@ shinyServer(function(input, output, session) {
   output$ui_path_num <- renderUI({
     numericInput(
       inputId = "path_num",
-      label   = "How many pathogen dose responses to include, up to 7 currently supported.",
+      label   = "Number of pathogens, up to 7 currently supported.",
       min     = 1,
       max     = 7,
       value   = 1,
@@ -267,6 +267,8 @@ shinyServer(function(input, output, session) {
     tagList(
       uiOutput("ui_download_data"),
       tableOutput("ui_download_preview"),
+      textOutput("ui_meanwwdose"),
+      textOutput("ui_meandffinal"),
       tags$p(text_blocks$download_info)
     )
   })
@@ -292,7 +294,11 @@ shinyServer(function(input, output, session) {
 
   output$ui_download_preview <- renderTable({
     head(dl_dataset())
-  })
+  }, digits = -1)
+  
+ output$ui_meanwwdose<-renderText({mean(ww_dose()[,1])})
+ output$ui_meandffinal<-renderText({mean(df_final()[,2])})
+ # 
 
   # DOWNLOAD HANDLER --------------------------------------------------------
 
@@ -438,5 +444,10 @@ shinyServer(function(input, output, session) {
     ) %>%
       set_names(c("path_id", "p_ill"))
   })
-
+## export test values
+exportColMeans<-reactive(colMeans(df()))
+isolateColMeans<-isolate(exportColMeans())
+text<-class(exportColMeans)
+exportTestValues(text={text})
+exportTestValues(nums={isolateColMeans})
 })
