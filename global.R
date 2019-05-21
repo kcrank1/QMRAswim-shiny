@@ -47,4 +47,3 @@ text_blocks <- list(
   plot1 = "The dashed line represents the EPA recreational water standard of 30 illnesses per 1000 bathers",
   download_info = "File preview only shows first six values. Actual table will as long as the number of samplings. The export will be a .csv."
 )
-
