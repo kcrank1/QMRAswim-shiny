@@ -205,6 +205,8 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
 
   return(
     list(
+      # cp_sewkc =cp_sew, #testing purposes only
+      # ekc     = e, #testing purposes only
       p_ill = p_ill,
       name  = path_name
     )

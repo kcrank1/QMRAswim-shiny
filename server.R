@@ -267,9 +267,12 @@ shinyServer(function(input, output, session) {
     tagList(
       uiOutput("ui_download_data"),
       tableOutput("ui_download_preview"),
-      textOutput("ui_meanwwdose"),
-      textOutput("ui_meandffinal"),
+      # textOutput("ui_meanwwdose"),      ##output style testing, keeping in case I must return to the dark ages
+      # tableOutput("ui_cp_sew"),
+      # tableOutput("ui_exposure"),
+      tableOutput("ui_Pill"),
       tags$p(text_blocks$download_info)
+
     )
   })
 
@@ -295,10 +298,36 @@ shinyServer(function(input, output, session) {
   output$ui_download_preview <- renderTable({
     head(dl_dataset())
   }, digits = -1)
+ # EXPORTING VALUES FOR TESTING --------------------------------------------- 
+ 
+  dfnew1<-reactive({
+    means<-colMeans(df())
+    df<-t(data.frame(means))
+    format(df, scientific = TRUE)
+    })
+ output$ui_Pill<-renderTable({dfnew1()})
   
- output$ui_meanwwdose<-renderText({mean(ww_dose()[,1])})
- output$ui_meandffinal<-renderText({mean(df_final()[,2])})
- # 
+  ## PROBLEM AREA  Note (*maynot be true*), exportTestValues cannot take data frames as arguments, so each data frame of important information has to be disassembled into their component values which is annoying
+  # exportTestValues(
+  #  mean_dose=mean_wwdose()#,
+  #  #tot_p_ill=mean_df_final()#,
+  #  #indiv_p_ill=dfnew1()
+  # )
+
+  
+### used this stone age relic since exportTestValues doesn't seem to work to make sure everything is working, a double double check if you will
+#   mean_wwdose<-reactive(mean(ww_dose()[,1]))
+#   mean_df_final<-reactive(mean(df_final()[,2]))
+#   df_head<-reactive((df()[,]))
+#   c_p<-reactive(mean(path1$cp_sewkc()))
+#   e_p<-reactive(colMeans(path1$ekc()))
+#   pinf_t<-reactive(mean(path1$pill()$pinf))
+# output$ui_meanwwdose<-renderText({(mean_wwdose())})
+# output$ui_meandffinal<-renderText({e_p()})
+# output$ui_cp_sew<-renderText({c_p()})
+# output$ui_exposure<-renderText({e_p()})
+
+
 
   # DOWNLOAD HANDLER --------------------------------------------------------
 
@@ -444,10 +473,4 @@ shinyServer(function(input, output, session) {
     ) %>%
       set_names(c("path_id", "p_ill"))
   })
-## export test values
-exportColMeans<-reactive(colMeans(df()))
-isolateColMeans<-isolate(exportColMeans())
-text<-class(exportColMeans)
-exportTestValues(text={text})
-exportTestValues(nums={isolateColMeans})
 })

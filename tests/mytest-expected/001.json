@@ -518,7 +518,7 @@
       ]
     },
     "ui_download": {
-      "html": "<div id=\"ui_download_data\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_download_preview\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_meanwwdose\" class=\"shiny-text-output\"><\/div>\n<div id=\"ui_meandffinal\" class=\"shiny-text-output\"><\/div>\n<p>File preview only shows first six values. Actual table will as long as the number of samplings. The export will be a .csv.<\/p>",
+      "html": "<div id=\"ui_download_data\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_download_preview\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_Pill\" class=\"shiny-html-output\"><\/div>\n<p>File preview only shows first six values. Actual table will as long as the number of samplings. The export will be a .csv.<\/p>",
       "deps": [
 
       ]
@@ -615,6 +615,7 @@
 
       ]
     },
+    "ui_Pill": "<table  class = 'table shiny-table table- spacing-s' style = 'width:auto;'>\n<thead> <tr> <th style='text-align: left;'> Adenovirus <\/th> <th style='text-align: left;'> Norovirus <\/th> <th style='text-align: left;'> Enterovirus <\/th> <th style='text-align: left;'> Rotavirus <\/th> <th style='text-align: left;'> Total Pill <\/th>  <\/tr> <\/thead> <tbody>\n  <tr> <td> 2.747777e-03 <\/td> <td> 2.814502e-05 <\/td> <td> 2.142317e-06 <\/td> <td> 1.559781e-08 <\/td> <td> 2.777233e-03 <\/td> <\/tr>\n   <\/tbody> <\/table>",
     "ui_sample": {
       "html": "<div id=\"ui_sample_seed\" class=\"shiny-html-output\"><\/div>\n<div id=\"ui_sample_n\" class=\"shiny-html-output\"><\/div>",
       "deps": [
@@ -665,6 +666,6 @@
     }
   },
   "export": {
-    "mean_dose": 8.26229305385277e-10
+
   }
 }
