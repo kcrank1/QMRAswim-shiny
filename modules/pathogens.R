@@ -184,7 +184,7 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
       p_inf <- f1(input$resp_mod_par_lambda, e())
     } else if(input$resp_mod == "two-parameter beta-poisson") {
       p_inf <- f2(input$resp_mod_par_alpha, input$resp_mod_par_beta, e())
-    } else if(ns("resp_mod") == "two-parameter hypergeometric1f1") {
+    } else if(input$resp_mod == "two-parameter hypergeometric1f1") {
       p_inf <- f3(input$resp_mod_par_alpha, input$resp_mod_par_beta, e())
     }
     if(input$dist == "uniform") {

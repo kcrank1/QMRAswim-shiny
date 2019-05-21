@@ -412,9 +412,45 @@
       ]
     },
     "plot_box1": {
-      "message": "object 'p_inf' not found",
-      "call": "`<reactive>`(...)",
-      "type": null
+      "src": "[image data sha1: 1f450f03486a1f5302005c329b313f1ea9d3ca6f]",
+      "width": 466,
+      "height": 400,
+      "coordmap": {
+        "panels": [
+          {
+            "panel": 1,
+            "row": 1,
+            "col": 1,
+            "panel_vars": {
+
+            },
+            "log": {
+              "x": null,
+              "y": 10
+            },
+            "domain": {
+              "left": 0.4,
+              "right": 5.6,
+              "bottom": -13.0313801381261,
+              "top": 0.0515520679112227
+            },
+            "mapping": {
+              "x": "path_id",
+              "y": "p_ill"
+            },
+            "range": {
+              "left": 56.6837282649904,
+              "right": 458.52801992528,
+              "bottom": 357.689318133172,
+              "top": 30.3541163994396
+            }
+          }
+        ],
+        "dims": {
+          "width": 466,
+          "height": 400
+        }
+      }
     },
     "plot_hist1": {
       "src": "[image data sha1: e08efb8a5090ed7e231d1c09ce0b3d201c249ab7]",
@@ -567,12 +603,6 @@
 
       ]
     },
-    "ui_meandffinal": {
-      "message": "object 'p_inf' not found",
-      "call": "`<reactive>`(...)",
-      "type": null
-    },
-    "ui_meanwwdose": "8.262293e-10",
     "ui_path_num": {
       "html": "<div class=\"form-group shiny-input-container\">\n  <label for=\"path_num\">Number of pathogens, up to 7 currently supported.<\/label>\n  <input id=\"path_num\" type=\"number\" class=\"form-control\" value=\"1\" min=\"1\" max=\"7\" step=\"1\"/>\n<\/div>",
       "deps": [
@@ -635,6 +665,6 @@
     }
   },
   "export": {
-
+    "mean_dose": 8.26229305385277e-10
   }
 }
