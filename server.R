@@ -26,8 +26,11 @@ shinyServer(function(input, output, session) {
   output$ui <- renderUI({
 
     tagList(
+      
+      h1(id="big-heading", "SWIM_R, A quantitative microbiological risk assesment tool"),
+      tags$style(HTML("#big-heading{color: #1A5276;}")), # "#big-heading{background-color:#943126}")), can use to change background color
 
-      titlePanel("QMRA of swimming in sewage impacted environmental waters"),
+      #titlePanel("SWIM_R, A quatitative microbiological risk assesment tool"), #1A5276 of swimming in sewage impacted environmental waters"),
       tags$p(text_blocks$appinfo),
 
       fluidRow(
