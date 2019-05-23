@@ -282,7 +282,7 @@ shinyServer(function(input, output, session) {
       selectInput(
         inputId = "dl_data_name",
         label   = "Choose a dataset:",
-        choices = c("wastewater dose", "probability of illness")
+        choices = c("wastewater dose", "probability of illness", "reshaped probability of illness")
       ),
       downloadButton(
         outputId = "dl_data",
@@ -341,6 +341,8 @@ shinyServer(function(input, output, session) {
         ww_dose()
       } else if(input$dl_data_name == "probability of illness") {
         df_final()
+      } else if (input$dl_data_name == "reshaped probability of illness"){
+        df()
       }
     }
   )
