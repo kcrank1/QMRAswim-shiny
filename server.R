@@ -84,7 +84,7 @@ shinyServer(function(input, output, session) {
   output$ui_indic <- renderUI({
     numericInput(
       inputId = "indic",
-      label   = "Concentration of indicator in impacted water (log 10 copies/100mL)",
+      label   = "Concentration of indicator in impacted water (genome copies/100mL) *Note, this is not in log10 format.",
       value   = 1,
       min     = 0,
       max     = 100
@@ -267,7 +267,7 @@ shinyServer(function(input, output, session) {
     tagList(
       uiOutput("ui_download_data"),
       tableOutput("ui_download_preview"),
-      # textOutput("ui_meanwwdose"),      ##output style testing, keeping in case I must return to the dark ages
+      tableOutput("ui_meanwwdose"),      ##output style testing, keeping in case I must return to the dark ages
       # tableOutput("ui_cp_sew"),
       # tableOutput("ui_exposure"),
       tableOutput("ui_Pill"),
@@ -316,13 +316,13 @@ shinyServer(function(input, output, session) {
 
   
 ### used this stone age relic since exportTestValues doesn't seem to work to make sure everything is working, a double double check if you will
-#   mean_wwdose<-reactive(mean(ww_dose()[,1]))
+   mean_wwdose<-reactive(mean(ww_dose()[,1]))
 #   mean_df_final<-reactive(mean(df_final()[,2]))
 #   df_head<-reactive((df()[,]))
 #   c_p<-reactive(mean(path1$cp_sewkc()))
 #   e_p<-reactive(colMeans(path1$ekc()))
 #   pinf_t<-reactive(mean(path1$pill()$pinf))
-# output$ui_meanwwdose<-renderText({(mean_wwdose())})
+ output$ui_meanwwdose<-renderText({(mean_wwdose())})
 # output$ui_meandffinal<-renderText({e_p()})
 # output$ui_cp_sew<-renderText({c_p()})
 # output$ui_exposure<-renderText({e_p()})
