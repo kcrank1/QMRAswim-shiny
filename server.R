@@ -21,6 +21,9 @@ shinyServer(function(input, output, session) {
   path5 <- callModule(module = pathogens, id = 'path5', n = reactive(5), sample_n = sample_n, ww_dose = ww_dose)
   path6 <- callModule(module = pathogens, id = 'path6', n = reactive(6), sample_n = sample_n, ww_dose = ww_dose)
   path7 <- callModule(module = pathogens, id = 'path7', n = reactive(7), sample_n = sample_n, ww_dose = ww_dose)
+  path8 <- callModule(module = pathogens, id = 'path8', n = reactive(8), sample_n = sample_n, ww_dose = ww_dose)
+  path9 <- callModule(module = pathogens, id = 'path9', n = reactive(9), sample_n = sample_n, ww_dose = ww_dose)
+  path10 <- callModule(module = pathogens, id = 'path10', n = reactive(10), sample_n = sample_n, ww_dose = ww_dose)
   # UI ----------------------------------------------------------------------
 
   output$ui <- renderUI({
@@ -210,9 +213,9 @@ shinyServer(function(input, output, session) {
   output$ui_path_num <- renderUI({
     numericInput(
       inputId = "path_num",
-      label   = "Number of pathogens, up to 7 currently supported.",
+      label   = "Number of pathogens, up to 10 currently supported.",
       min     = 1,
-      max     = 7,
+      max     = 10,
       value   = 1,
       step    = 1
     )
@@ -433,6 +436,12 @@ shinyServer(function(input, output, session) {
       1 - ( (1 - path1$p_ill()) * (1 - path2$p_ill()) * (1 - path3$p_ill()) * (1 - path4$p_ill()) * (1 - path5$p_ill())* (1 - path6$p_ill()))
     } else if(input$path_num == 7) {
       1 - ( (1 - path1$p_ill()) * (1 - path2$p_ill()) * (1 - path3$p_ill()) * (1 - path4$p_ill()) * (1 - path5$p_ill())* (1 - path6$p_ill())* (1 - path7$p_ill()))
+    } else if(input$path_num == 8) {
+      1 - ( (1 - path1$p_ill()) * (1 - path2$p_ill()) * (1 - path3$p_ill()) * (1 - path4$p_ill()) * (1 - path5$p_ill())* (1 - path6$p_ill())* (1 - path7$p_ill())* (1 - path8$p_ill()))
+    } else if(input$path_num == 9) {
+      1 - ( (1 - path1$p_ill()) * (1 - path2$p_ill()) * (1 - path3$p_ill()) * (1 - path4$p_ill()) * (1 - path5$p_ill())* (1 - path6$p_ill())* (1 - path7$p_ill())* (1 - path8$p_ill())* (1 - path9$p_ill()))
+    } else if(input$path_num == 10) {
+      1 - ( (1 - path1$p_ill()) * (1 - path2$p_ill()) * (1 - path3$p_ill()) * (1 - path4$p_ill()) * (1 - path5$p_ill())* (1 - path6$p_ill())* (1 - path7$p_ill())* (1 - path8$p_ill())* (1 - path9$p_ill())* (1 - path10$p_ill()))
   }
   })
 #  p_ill_tot <-reactive({
@@ -465,6 +474,15 @@ shinyServer(function(input, output, session) {
     } else if(input$path_num == 7) {
       data.frame(path1$p_ill(), path2$p_ill(), path3$p_ill(), path4$p_ill(), path5$p_ill(), path6$p_ill(), path7$p_ill(),  p_ill_tot()) %>%
         set_names(nm = c(path1$name(), path2$name(), path3$name(), path4$name(), path5$name(), path6$name(), path7$name(), "Total Pill"))
+    } else if(input$path_num == 8) {
+      data.frame(path1$p_ill(), path2$p_ill(), path3$p_ill(), path4$p_ill(), path5$p_ill(), path6$p_ill(), path7$p_ill(), path8$p_ill(), p_ill_tot()) %>%
+        set_names(nm = c(path1$name(), path2$name(), path3$name(), path4$name(), path5$name(), path6$name(), path7$name(), path8$name(), "Total Pill"))
+    } else if(input$path_num == 9) {
+      data.frame(path1$p_ill(), path2$p_ill(), path3$p_ill(), path4$p_ill(), path5$p_ill(), path6$p_ill(), path7$p_ill(), path8$p_ill(),path9$p_ill(), p_ill_tot()) %>%
+        set_names(nm = c(path1$name(), path2$name(), path3$name(), path4$name(), path5$name(), path6$name(), path7$name(),path8$name(),path9$name(), "Total Pill"))
+    } else if(input$path_num == 10) {
+      data.frame(path1$p_ill(), path2$p_ill(), path3$p_ill(), path4$p_ill(), path5$p_ill(), path6$p_ill(), path7$p_ill(), path8$p_ill(),path9$p_ill(),path10$p_ill(), p_ill_tot()) %>%
+        set_names(nm = c(path1$name(), path2$name(), path3$name(), path4$name(), path5$name(), path6$name(), path7$name(),path8$name(),path9$name(),path10$name(), "Total Pill"))
     }
   })
 
