@@ -33,12 +33,16 @@ f3 <- function(a, b, n){
 }
 
 text_blocks <- list(
-  appinfo = paste(
-    "SWIM_R models the probability of illnesses due to swimming in a sewage impacted waters.",
-    "Given inputs of the measured concentration of an indicator organism and desired reference values, and the output is a boxplot of probability of illnesses from any pathogens the user inputs reference values for.",
-#    "Downloads will be available for every computational step in the form of an Excel document.",
-    "The intended audience for this tool are scientists or public health professionals who have access to the wide variety of reference information that is required to run the tool.",
-    "This tool is useful and unique because it can take one measurement from an impacted water body and tell the user ranges of probabilities of illness for any number or type of pathogen."
+  appinfo = list(tags$b("What it does:"),
+                 "Models the probability of illnesses due to swimming in a sewage impacted waters",
+                 tags$br(),
+                 tags$b("Outputs:"),
+                 "Downloadable excel sheets of computational steps, boxplot of probability of illnesses due to any pathogens for which the user inputs reference values",
+                 tags$br(),
+                 tags$b("How to use:"),
+                 "Input the measured concentration of an indicator organism along with reference values specified in dropdown boxes below"
+                 #    "The intended audience for this tool are scientists or public health professionals who have access to the wide variety of reference information that is required to run the tool.",
+                 #    "This tool is useful and unique because it can take one measurement from an impacted water body and tell the user ranges of probabilities of illness for any number or type of pathogen."
   ),
   doseresponseinfo = paste(
     "Default water dose is from 'Water ingestion during swimming activities in a pool: a pilot study', (Dufor et al. 2006).",
