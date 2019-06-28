@@ -1,0 +1,12 @@
+name: qmraswim
+title:
+username:
+account: qmraswim
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1004064
+bundleId: 2186813
+url: https://qmraswim.shinyapps.io/qmraswim/
+when: 1561759382.61819
+asMultiple: FALSE
+asStatic: FALSE
