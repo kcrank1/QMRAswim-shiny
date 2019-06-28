@@ -1,17 +1,25 @@
 
 rm(list = ls())
 
-# Handle packages
-lapply(
-  X = c("reshape", "shiny", "CharFun", "tidyverse", "scales", "shinydashboard", "shinyjs","shinythemes","shinytest"),
-  FUN = function(p) {
-    if(p %in% installed.packages()[,"Package"] == FALSE) {
-      install.packages(p, dependencies = TRUE)
-    }
-    library(p, character.only = TRUE)
-  }
-)
-
+# # Handle packages
+# lapply(
+#   X = c("reshape", "shiny", "CharFun", "tidyverse", "scales", "shinydashboard", "shinyjs","shinythemes","shinytest"),
+#   FUN = function(p) {
+#     if(p %in% installed.packages()[,"Package"] == FALSE) {
+#       install.packages(p, dependencies = TRUE)
+#     }
+#     library(p, character.only = TRUE)
+#   }
+# )
+library(reshape)
+library(shiny)
+library(CharFun)
+library(tidyverse)
+library(scales)
+library(shinydashboard)
+library(shinyjs)
+library(shinythemes)
+library(shinytest)
 # Load modules
 lapply(
   X = list.files(path = "modules", full.names = TRUE, recursive = TRUE),
