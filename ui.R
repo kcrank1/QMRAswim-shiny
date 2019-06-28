@@ -21,7 +21,7 @@ fluidPage(theme=shinytheme("spacelab"),
     p(),
     tags$hr(),
     tags$i("Source code for this app is",
-    a(href="https://github.com/kcrank1/QMRAswim", "here")),
+    a(href="https://github.com/kcrank1/QMRAswim-shiny", "here")),
     tags$hr()
             
 )
