@@ -121,14 +121,14 @@ shinyServer(function(input, output, session) {
       tagList(
         numericInput(
           inputId = "indic_sewage_dist_par_max",
-          label   = "Max concentration (log10 copies/L) ",
+          label   = "Maximum concentration (log10 copies/L) ",
           value   = 9.5,
           min     = 0,
           max     = 100
         ),
         numericInput(
           inputId = "indic_sewage_dist_par_min",
-          label   = "Min concentration (log10 copies/L)",
+          label   = "Minimum concentration (log10 copies/L)",
           value   = 7,
           min     = 0,
           max     = 100

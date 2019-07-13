@@ -45,7 +45,7 @@ text_blocks <- list(
                  "Models the probability of illnesses due to swimming in a sewage impacted waters",
                  tags$br(),
                  tags$b("Outputs:"),
-                 "Downloadable excel sheets of computational steps, boxplot of probability of illnesses due to any pathogens for which the user inputs reference values",
+                 "Downloadable data of computational steps, boxplot of probability of illnesses due to any pathogens for which the user inputs reference values",
                  tags$br(),
                  tags$b("How to use:"),
                  "Input the measured concentration of an indicator organism along with reference values specified in dropdown boxes below"
@@ -57,5 +57,5 @@ text_blocks <- list(
     "Log normal is only distribution currently supported."
   ),
   plot1 = "The dashed line represents the EPA recreational water standard of 30 illnesses per 1000 bathers",
-  download_info = "File preview only shows first six values. Actual table will as long as the number of samplings. The export will be a .csv."
+  download_info = "File preview only shows first six values. Actual table will as long as the number of samplings. The export is a .csv."
 )

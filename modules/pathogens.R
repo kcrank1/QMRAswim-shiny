@@ -71,7 +71,7 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
   output$ui_dist <- renderUI({
     selectInput(
       inputId = ns("dist"),
-      label   = paste("Pill/inf for pathogen", n()),
+      label   = paste("Probability of illness due to pathogen", n()),
       choices = c("single value", "uniform")
     )
   })
@@ -120,14 +120,14 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
       tagList(
         numericInput(
           inputId = ns("sewage_dist_par_min"),
-          label   = paste("Min concentration", n(), "in sewage (log10 copies/L)"),
+          label   = paste("Minimun concentration of pathogen", n(), "in sewage (log10 copies/L)"),
           value   = 5.5,
           min     = 0,
           max     = 100
         ),
         numericInput(
           inputId = ns("sewage_dist_par_max"),
-          label   = paste("Max concentration", n(), "in sewage (log10 copies/L)"),
+          label   = paste("Maximum concentration of pathogen", n(), "in sewage (log10 copies/L)"),
           value   = 8,
           min     = 0,
           max     = 100
