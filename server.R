@@ -165,7 +165,7 @@ shinyServer(function(input, output, session) {
   output$ui_sample_seed <- renderUI({
     numericInput(
       inputId = "sample_seed",
-      label   = "Set seed of random number generator",
+      label   = "Set seed: arbitrary reference value that ensures replicability in the random number generator",
       value   = 1,
       min     = 0,
       max     = 1000000000
@@ -195,7 +195,7 @@ shinyServer(function(input, output, session) {
   output$ui_dose_mean <- renderUI({
     numericInput(
       inputId = "dose_mean",
-      label   = "Dose mean",
+      label   = "Dose mean (mL)",
       min     = 0,
       max     = 100,
       value   = 2.92
@@ -205,7 +205,7 @@ shinyServer(function(input, output, session) {
   output$ui_dose_sd <- renderUI({
     numericInput(
       inputId = "dose_sd",
-      label   = "Dose standard deviation",
+      label   = "Dose standard deviation (mL)",
       min     = 0,
       max     = 10,
       value   = 1.42
@@ -275,7 +275,7 @@ shinyServer(function(input, output, session) {
     tagList(
       uiOutput("ui_download_data"),
       tableOutput("ui_download_preview"),
-      tableOutput("ui_meanwwdose"),      ##output style testing, keeping in case I must return to the dark ages
+      #("ui_meanwwdose"),      ##output style testing, keeping in case I must return to the dark ages
       # tableOutput("ui_cp_sew"),
       # tableOutput("ui_exposure"),
       tableOutput("ui_Pill"),
@@ -307,14 +307,14 @@ shinyServer(function(input, output, session) {
     head(dl_dataset())
   }, digits = -1)
  # EXPORTING VALUES FOR TESTING --------------------------------------------- 
- 
-  dfnew1<-reactive({
-    means<-colMeans(df())
-    df<-t(data.frame(means))
-    format(df, scientific = TRUE)
-    })
- output$ui_Pill<-renderTable({dfnew1()})
-  
+ # 
+ #  dfnew1<-reactive({
+ #    means<-colMeans(df())
+ #    df<-t(data.frame(means))
+ #    format(df, scientific = TRUE)
+ #    })
+ # output$ui_Pill<-renderTable({dfnew1()})
+ #  
   ## PROBLEM AREA  Note (*maynot be true*), exportTestValues cannot take data frames as arguments, so each data frame of important information has to be disassembled into their component values which is annoying
   # exportTestValues(
   #  mean_dose=mean_wwdose()#,
@@ -324,13 +324,13 @@ shinyServer(function(input, output, session) {
 
   
 ### used this stone age relic since exportTestValues doesn't seem to work to make sure everything is working, a double double check if you will
-   mean_wwdose<-reactive(mean(ww_dose()[,1]))
+ #  mean_wwdose<-reactive(mean(ww_dose()[,1]))
 #   mean_df_final<-reactive(mean(df_final()[,2]))
 #   df_head<-reactive((df()[,]))
 #   c_p<-reactive(mean(path1$cp_sewkc()))
 #   e_p<-reactive(colMeans(path1$ekc()))
 #   pinf_t<-reactive(mean(path1$pill()$pinf))
- output$ui_meanwwdose<-renderText({(mean_wwdose())})
+# output$ui_meanwwdose<-renderText({(mean_wwdose())})
 # output$ui_meandffinal<-renderText({e_p()})
 # output$ui_cp_sew<-renderText({c_p()})
 # output$ui_exposure<-renderText({e_p()})

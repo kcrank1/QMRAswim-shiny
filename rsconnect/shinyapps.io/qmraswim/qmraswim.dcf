@@ -5,8 +5,9 @@ account: qmraswim
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 1004064
-bundleId: 2186813
+bundleId: 2233684
 url: https://qmraswim.shinyapps.io/qmraswim/
-when: 1561759382.61819
+when: 1563206408.58802
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: .RData|README.md|tests/mytest.R|tests/mytest-current/001.json|tests/mytest-current/001.png|tests/mytest-expected/001.json|tests/mytest-expected/001.png
