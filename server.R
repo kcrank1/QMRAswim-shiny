@@ -195,7 +195,7 @@ shinyServer(function(input, output, session) {
   output$ui_dose_mean <- renderUI({
     numericInput(
       inputId = "dose_mean",
-      label   = "Dose mean (mL)",
+      label   = "Dose mean",
       min     = 0,
       max     = 100,
       value   = 2.92
@@ -205,7 +205,7 @@ shinyServer(function(input, output, session) {
   output$ui_dose_sd <- renderUI({
     numericInput(
       inputId = "dose_sd",
-      label   = "Dose standard deviation (mL)",
+      label   = "Dose standard deviation",
       min     = 0,
       max     = 10,
       value   = 1.42
