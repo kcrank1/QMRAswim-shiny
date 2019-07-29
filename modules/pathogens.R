@@ -144,7 +144,7 @@ pathogens <- function(input, output, session, n, sample_n, ww_dose) {
         ),
         numericInput(
           inputId = ns("sewage_dist_par_beta"),
-          label   = "Beta value (standard deviation) in log10 copies/L",
+          label   = "Beta (standard deviation) in log10 copies/L",
           value   = 1,
           min     = 0,
           max     = 100
