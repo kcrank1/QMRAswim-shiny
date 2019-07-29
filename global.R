@@ -53,8 +53,8 @@ text_blocks <- list(
                  #    "This tool is useful and unique because it can take one measurement from an impacted water body and tell the user ranges of probabilities of illness for any number or type of pathogen."
   ),
   doseresponseinfo = paste(
-    "Default water dose is from 'Water ingestion during swimming activities in a pool: a pilot study', (Dufor et al. 2006).",
-    "Log normal is only distribution currently supported."
+    "Default water dose in mL is from 'Water ingestion during swimming activities in a pool: a pilot study', (Dufor et al. 2006).",
+    "Log-e normal is only distribution currently supported."
   ),
   plot1 = "The dashed line represents the EPA recreational water standard of 30 illnesses per 1000 bathers",
   download_info = "File preview only shows first six values. Actual table will as long as the number of samplings. The export is a .csv."
