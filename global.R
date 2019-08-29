@@ -41,8 +41,14 @@ f3 <- function(a, b, n){
 }
 
 text_blocks <- list(
-  appinfo = list(tags$b("What it does:"),
-                 "Models the probability of illnesses due to swimming in a sewage impacted waters",
+  appinfo = list(tags$b("Exposure Scenario:"),
+                 "The exposure scenario modeled here follows an adult bather during a 45-minute swimming event occurring in water polluted by fresh domestic wastewater at the time of recreation. A cross-sectional approach was taken, and pathogen decay was not included. Additional verification should include an incorporated time model, additional bather populations, and different lengths of swimming events. It is important to note that risk assumptions would change with multiple sources of contamination, or with additional transport or aging of contamination. ",
+                 tags$br(),
+                 tags$b("Intended audience:"),
+                 "The intended audience for this tool are scientists or public health professionals who have access to the wide variety of reference information that is required to run the tool.",
+                 tags$br(),
+                  tags$b("What it does:"),
+                 "Models the probability of illnesses due to swimming in fresh domestic wastewater impacted waters",
                  tags$br(),
                  tags$b("Outputs:"),
                  "Downloadable data of computational steps, boxplot of probability of illnesses due to any pathogens for which the user inputs reference values",
