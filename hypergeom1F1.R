@@ -1,8 +1,8 @@
 
 ###From CharFun package
-#YEAR: 2017
-#COPYRIGHT HOLDER: Ľudmila Šimková
-#https://github.com/Simkova/CharFun
+###YEAR: 2017
+###COPYRIGHT HOLDER: Ľudmila Šimková
+###https://github.com/Simkova/CharFun
 
 hypergeom1F1 <- function(z, a, b) {
   sz <- dim(z)
