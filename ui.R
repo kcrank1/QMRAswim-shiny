@@ -1,6 +1,7 @@
 library(shinythemes)
 fluidPage(theme=shinytheme("spacelab"),
   tags$head(
+    includeHTML("google-analytics.html"),
     # tags$meta(tags$title('')),
     tags$link(rel = 'stylesheet', type = 'text/css', href = 'styles.css'),
     tags$script(src = 'script.js')
