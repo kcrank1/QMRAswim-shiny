@@ -30,7 +30,7 @@ shinyServer(function(input, output, session) {
 
     tagList(
       
-      h1(id="big-heading", "QMRAswim, A quantitative microbiological risk assessment tool"),
+      h1(id="big-heading", "QMRAswim, A quantitative microbial risk assessment tool"),
       tags$style(HTML("#big-heading{color: #1A5276;}")), # "#big-heading{background-color:#943126}")), can use to change background color
 
       #titlePanel("SWIM_R, A quatitative microbiological risk assesment tool"), #1A5276 of swimming in sewage impacted environmental waters"),
@@ -138,14 +138,14 @@ shinyServer(function(input, output, session) {
       tagList(
         numericInput(
           inputId = "indic_sewage_dist_par_alpha",
-          label   = "Alpha",
+          label   = "meanlog",
           value   = 1,
           min     = 0,
           max     = 100
         ),
         numericInput(
           inputId = "indic_sewage_dist_par_beta",
-          label   = "Beta",
+          label   = "sdlog",
           value   = 1,
           min     = 0,
           max     = 100
@@ -231,7 +231,7 @@ shinyServer(function(input, output, session) {
       geom_boxplot() +
       ylab("") +
       xlab("") +
-      ggtitle("Probability of Illness from Swimming in Contaminated Water") +
+      ggtitle("Probability of Illness from Swimming in Freshly Contaminated Water") +
       geom_hline(yintercept = 0.03, linetype = "dashed") +
       annotation_logticks(sides = "l") +
       theme_linedraw(base_size = 15) +
@@ -392,7 +392,7 @@ shinyServer(function(input, output, session) {
     if(input$indic_sewage_dist == "log uniform") {
       validate(need(input$indic_sewage_dist_par_min, 'Loading...'))
       validate(need(input$indic_sewage_dist_par_max, 'Loading...'))
-      dist <- runif(
+      dist <- 10^runif(
         n   = input$sample_n,
         min = input$indic_sewage_dist_par_min,
         max = input$indic_sewage_dist_par_max
@@ -411,7 +411,7 @@ shinyServer(function(input, output, session) {
       meanlog = input$dose_mean,
       sdlog   = input$dose_sd
     )
-    fraction_ww <- (input$indic / 100) / (10 ^ dist) * 1000 ###indic is per 100mL, dist is per 1000mL, fraction_ww is unitless
+    fraction_ww <- (input$indic / 100) / ( dist) * 1000 ###indic is per 100mL, dist is per 1000mL, fraction_ww is unitless
     #fraction_ww<-input$indic/10^dist
     dose <- env_water_dose / 1000 * fraction_ww
     data.frame(dose)
